@@ -1,6 +1,7 @@
 package StepsRM;
 
 import io.cucumber.java.ru.И;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -26,6 +27,7 @@ public class StepsRM {
 
     public static void getCharacter(String id) {
         Response getCharacter = given()
+                .filter(new AllureRestAssured())
                 .baseUri(baseURL)
                 .when()
                 .get("/character/" + id)
@@ -40,6 +42,7 @@ public class StepsRM {
     public static void getEpisodeUrl() {
 
         ArrayList episode = given()
+                .filter(new AllureRestAssured())
                 .baseUri(baseURL)
                 .when()
                 .contentType(ContentType.JSON)
@@ -55,6 +58,7 @@ public class StepsRM {
     public static void getMortyRace() {
 
         String getRace = given()
+                .filter(new AllureRestAssured())
                 .baseUri(baseURL)
                 .when()
                 .contentType(ContentType.JSON)
@@ -69,6 +73,7 @@ public class StepsRM {
 
     public static void getMortyLocation() {
         String getMortyLoc = given()
+                .filter(new AllureRestAssured())
                 .baseUri(baseURL)
                 .when()
                 .contentType(ContentType.JSON)
@@ -83,6 +88,7 @@ public class StepsRM {
 
     public static void getLastCharUrl() {
         ArrayList characters = given()
+                .filter(new AllureRestAssured())
                 .when()
                 .contentType(ContentType.JSON)
                 .get(lastEpisodeUrl)
@@ -96,6 +102,7 @@ public class StepsRM {
     public static void getLastCharacter() {
 
         String getLastCharacterName = given()
+                .filter(new AllureRestAssured())
                 .when()
                 .contentType(ContentType.JSON)
                 .get(lastCharacterNameUrl)
@@ -111,6 +118,7 @@ public class StepsRM {
     public static void getLastCharacterRace() {
 
         String getLastCharRace = given()
+                .filter(new AllureRestAssured())
                 .when()
                 .contentType(ContentType.JSON)
                 .get(lastCharacterNameUrl)
@@ -125,6 +133,7 @@ public class StepsRM {
     public static void getLastCharacterLocation() {
 
         Object getLastCharLocation = given()
+                .filter(new AllureRestAssured())
                 .when()
                 .contentType(ContentType.JSON)
                 .get(lastCharacterNameUrl)
